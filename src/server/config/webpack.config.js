@@ -2,6 +2,7 @@ import path from 'path';
 import webpack from 'webpack';
 import CaseSensitivePathsPlugin from 'case-sensitive-paths-webpack-plugin';
 import WatchMissingNodeModulesPlugin from './WatchMissingNodeModulesPlugin';
+import getWebpackVersion from '../../../scripts/utils/getWebpackVersion';
 import {
   OccurenceOrderPlugin,
   includePaths,
@@ -11,6 +12,8 @@ import {
   nodePaths,
 } from './utils';
 import babelLoaderConfig from './babel.js';
+
+const isWebpack2 = getWebpackVersion() === 2;
 
 export default function () {
   const config = {
